@@ -9,10 +9,12 @@ typedef struct {
     float area;             // Área em km²
     float pib;              // PIB em bilhões
     int pontosTuristicos;   // Número de pontos turísticos
+    float densidadePopulacional;
+    float pibPerCapita;
 } Carta;
 
 int main() {
-    Carta carta1, carta2; 
+    Carta carta1, carta2;
 
     // Cadastro da carta 1
     printf("Cadastro da Carta 1:\n");
@@ -36,6 +38,10 @@ int main() {
 
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &carta1.pontosTuristicos);
+
+    // Cálculos carta 1
+    carta1.densidadePopulacional = carta1.populacao / carta1.area;
+    carta1.pibPerCapita = (carta1.pib * 1000000000) / carta1.populacao;
 
     printf("\n");
 
@@ -62,6 +68,10 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &carta2.pontosTuristicos);
 
+    // Cálculos carta 2
+    carta2.densidadePopulacional = carta2.populacao / carta2.area;
+    carta2.pibPerCapita = (carta2.pib * 1000000000) / carta2.populacao;
+
     printf("\n");
 
     // Exibição da carta 1
@@ -72,7 +82,9 @@ int main() {
     printf("População: %d\n", carta1.populacao);
     printf("Área: %.2f km²\n", carta1.area);
     printf("PIB: %.2f bilhões de reais\n", carta1.pib);
-    printf("Número de Pontos Turísticos: %d\n\n", carta1.pontosTuristicos);
+    printf("Número de Pontos Turísticos: %d\n", carta1.pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidadePopulacional);
+    printf("PIB per Capita: %.2f reais\n\n", carta1.pibPerCapita);
 
     // Exibição da carta 2
     printf("Carta 2:\n");
@@ -83,6 +95,8 @@ int main() {
     printf("Área: %.2f km²\n", carta2.area);
     printf("PIB: %.2f bilhões de reais\n", carta2.pib);
     printf("Número de Pontos Turísticos: %d\n", carta2.pontosTuristicos);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidadePopulacional);
+    printf("PIB per Capita: %.2f reais\n", carta2.pibPerCapita);
 
     return 0;
 }
